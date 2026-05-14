@@ -111,11 +111,4 @@ code {
 } */
 
 @import "tailwindcss";
-
-.dark {
-  --bg: #111827;
-  --text: #f9fafb;
-  --border: #374151;
-  --card: #1f2937;
-  --hover: #374151;
-}
+@custom-variant dark (&:where(.dark, .dark *));

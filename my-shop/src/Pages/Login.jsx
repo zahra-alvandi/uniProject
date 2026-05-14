@@ -59,7 +59,6 @@ export default function Login() {
                 Sign in to continue exploring your library.
               </p>
 
-              {/* فرم جمع‌تر و وسط‌چین */}
               <div className="w-full max-w-sm mx-auto">
                 <form onSubmit={handleLogin} className="flex flex-col gap-4">
                   {/* Email */}

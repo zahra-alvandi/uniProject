@@ -20,17 +20,17 @@ export default function Register() {
   };
 
   return (
-    <div class="relative min-h-screen overflow-hidden bg-stone-50">
+    <div className="relative min-h-screen overflow-hidden bg-stone-50">
       <img
         src="/images/registerBg.png"
         className="absolute inset-0 h-full w-full object-cover"
         alt="bookstore background"
       />
-      <div class="absolute inset-0 bg-white/25"></div>
+      <div className="absolute inset-0 bg-white/25"></div>
 
-      <div class="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
-        <div class="grid w-full max-w-6xl overflow-hidden rounded-3xl border border-stone-200 bg-white/75 shadow-xl backdrop-blur-md md:grid-cols-2">
-          <div class="hidden md:block">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
+        <div className="grid w-full max-w-6xl overflow-hidden rounded-3xl border border-stone-200 bg-white/75 shadow-xl backdrop-blur-md md:grid-cols-2">
+          <div className="hidden md:block">
             <img
               src="/images/registerPic.png"
               className="w-full h-full object-cover"
@@ -39,7 +39,7 @@ export default function Register() {
           </div>
 
           <div className="p-4 md:p-12">
-            <div className="w-full max-w-md mx-auto mt-12 md:mt-20 px-0 sm:px-6 md:p-8">
+            <div className="w-full max-w-md mx-auto mt-12 md:mt-20 px-0 sm:px-6 md:p-8 dark:text-black">
               <h2 className="text-center text-2xl font-bold mb-6">
                 Registration
               </h2>
@@ -71,7 +71,6 @@ export default function Register() {
                     />
                   </div>
 
-                  {/* Password */}
                   <div className="flex items-center gap-2 h-12 w-full rounded-xl border border-stone-200 bg-white px-3 md:px-4 text-stone-900 outline-none focus-within:border-amber-300 focus-within:ring-2 focus-within:ring-amber-200">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
