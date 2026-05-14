@@ -25,8 +25,6 @@ function AppContent() {
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
-  const isAdminPage = location.pathname.startsWith("/admin");
-
   return (
     <div
       className={
