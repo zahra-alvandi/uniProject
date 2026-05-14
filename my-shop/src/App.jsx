@@ -7,35 +7,18 @@ import Register from "./Pages/Register";
 import Cart from "./Pages/Cart";
 import Admin from "./Pages/Admin";
 import Navbar from "./Components/Navbar";
+import Checkout from "./Pages/Checkout";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "true",
+  );
 
   useEffect(() => {
-    const saved = localStorage.getItem("darkMode") === "true";
-    setDarkMode(saved);
-    if (!saved) document.documentElement.classList.remove("dark");
-    if (saved) {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!darkMode) {
-      document.documentElement.classList.remove("dark");
-    }
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    const next = !darkMode;
-    setDarkMode(next);
-    localStorage.setItem("darkMode", next);
-    if (next) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
     <HashRouter>
@@ -49,11 +32,12 @@ function App() {
         <Toaster position="top-center" />
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/" element={<Home darkMode={darkMode} />} />
+          <Route path="/login" element={<Login darkMode={darkMode} />} />
+          <Route path="/register" element={<Register darkMode={darkMode} />} />
+          <Route path="/cart" element={<Cart darkMode={darkMode} />} />
+          <Route path="/admin" element={<Admin darkMode={darkMode} />} />
+          <Route path="/checkout" element={<Checkout darkMode={darkMode} />} />
         </Routes>
       </div>
     </HashRouter>

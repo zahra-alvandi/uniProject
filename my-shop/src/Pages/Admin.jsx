@@ -7,16 +7,23 @@ export default function Admin() {
   const [products, setProducts] = useState(getProducts());
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
+  // const cardBg = darkMode ? "#1f2937" : "#ffffff";
+  // const textColor = darkMode ? "#f9fafb" : "#000000";
+  // const borderColor = darkMode ? "#374151" : "#e5e7eb";
 
   const handleAdd = (e) => {
     e.preventDefault();
     if (!name || !price) return;
-    const updated = addProduct({ name, price: Number(price), image: image || "" });
+    const updated = addProduct({
+      name,
+      price: Number(price),
+      image: image || "",
+    });
     setProducts(updated);
     setName("");
     setPrice("");
-    setImage("")
+    setImage("");
     toast.success("Product added");
   };
 
@@ -35,7 +42,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto my-12 px-4">
+    <div className="max-w-2xl mx-auto my-12 px-4" >
       <h2 className="text-2xl font-bold mb-8"> Admin</h2>
 
       <form onSubmit={handleAdd} className="flex gap-4 mb-10">

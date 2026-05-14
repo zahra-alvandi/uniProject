@@ -78,9 +78,12 @@ const defaultProducts = [
   },
 ];
 
-export default function Home() {
+export default function Home({ darkMode }) {
   const savedProducts = getProducts();
   const products = savedProducts.length > 0 ? savedProducts : defaultProducts;
+  const cardBg = darkMode ? "#1f2937" : "#ffffff";
+  const textColor = darkMode ? "#f9fafb" : "#000000";
+  const borderColor = darkMode ? "#374151" : "#e5e7eb";
 
   const handleAddToCart = (product) => {
     const user = getUser();
@@ -154,6 +157,11 @@ export default function Home() {
         {products.map((product) => (
           <div
             key={product.id}
+            style={{
+              backgroundColor: cardBg,
+              color: textColor,
+              borderColor: borderColor,
+            }}
             className="p-2 md:p-5 rounded-2xl bg-white border border-gray-300 hover:shadow-md hover:scale-105 transition-all"
           >
             <div className="w-full h-52 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden text-gray-400 mb-4">
@@ -163,10 +171,24 @@ export default function Home() {
                 alt=""
               />
             </div>
-            <h3 className="text-md line-clamp-1 font-medium mb-2 text-gray-900">
+            <h3
+              className="text-md line-clamp-1 font-medium mb-2 text-gray-900"
+              style={{
+                backgroundColor: cardBg,
+                color: textColor,
+                borderColor: borderColor,
+              }}
+            >
               {product.name}
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p
+              className="text-gray-600 mb-4"
+              style={{
+                backgroundColor: cardBg,
+                color: textColor,
+                borderColor: borderColor,
+              }}
+            >
               {product.price?.toLocaleString()} Toman
             </p>
             {/* cart btn and rate */}
