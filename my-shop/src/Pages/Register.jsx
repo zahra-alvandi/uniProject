@@ -22,7 +22,7 @@ export default function Register() {
   return (
     <div class="relative min-h-screen overflow-hidden bg-stone-50">
       <img
-        src="/images/registerBg.png"
+        src={`${import.meta.env.BASE_URL}images/registerBg.png`}
         className="absolute inset-0 h-full w-full object-cover"
         alt="bookstore background"
       />
@@ -32,7 +32,7 @@ export default function Register() {
         <div class="grid w-full max-w-6xl overflow-hidden rounded-3xl border border-stone-200 bg-white/75 shadow-xl backdrop-blur-md md:grid-cols-2">
           <div class="hidden md:block">
             <img
-              src="/images/registerPic.png"
+              src={`${import.meta.env.BASE_URL}images/registerPic.png`}
               className="w-full h-full object-cover"
               alt=""
             />

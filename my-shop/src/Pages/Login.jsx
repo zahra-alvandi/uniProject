@@ -32,7 +32,7 @@ export default function Login() {
   return (
     <div className="relative min-h-[100dvh] bg-stone-50 px-4 md:px-8 overflow-hidden">
       <img
-        src="/images/loginBg.png"
+        src={`${import.meta.env.BASE_URL}images/loginBg.png`}
         className="absolute inset-0 h-full w-full object-cover"
         alt="bookstore background"
       />
@@ -43,7 +43,7 @@ export default function Login() {
         <div className="grid w-full max-w-full md:max-w-6xl overflow-hidden rounded-3xl border border-stone-200 bg-white/75 shadow-xl backdrop-blur-md md:grid-cols-2">
           <div className="hidden md:block">
             <img
-              src="/images/loginPic.png"
+              src={`${import.meta.env.BASE_URL}images/loginPic.png`}
               className="w-full h-full object-cover"
               alt=""
             />

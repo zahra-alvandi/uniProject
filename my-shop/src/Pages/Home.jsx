@@ -8,73 +8,73 @@ const defaultProducts = [
     id: 1,
     name: "classic English Novels Collection",
     price: "500,000",
-    img: "images/product-1.png",
+    img: `${import.meta.env.BASE_URL}images/product-1.png`,
   },
   {
     id: 2,
     name: "Modern English Fiction Set",
     price: "700,000",
-    img: "images/product-2.png",
+    img: `${import.meta.env.BASE_URL}images/product-2.png`
   },
   {
     id: 3,
     name: "Contemporary Literature Bundle ",
     price: "300,000",
-    img: "images/product-3.png",
+    img: `${import.meta.env.BASE_URL}images/product-3.png`
   },
   {
     id: 4,
     name: "Premium English Novel Pack",
     price: "600,000",
-    img: "images/product-4.png",
+    img: `${import.meta.env.BASE_URL}images/product-4.png`
   },
   {
     id: 5,
     name: "Inspiring Fiction Collection",
     price: "900,000",
-    img: "images/product-5.png",
+    img: `${import.meta.env.BASE_URL}images/product-5.png`
   },
   {
     id: 6,
     name: "Romance & Drama Novel Set",
     price: "750,000",
-    img: "images/product-6.png",
+    img: `${import.meta.env.BASE_URL}images/product-6.png`
   },
   {
     id: 7,
     name: "Adventure & Fantasy Book Bundle ",
     price: "450,000",
-    img: "images/product-7.png",
+    img: `${import.meta.env.BASE_URL}images/product-7.png`
   },
   {
     id: 8,
     name: "World Literature Collection ",
     price: "670,000",
-    img: "images/product-8.png",
+    img: `${import.meta.env.BASE_URL}images/product-8.png`
   },
   {
     id: 9,
     name: "Mystery & Thriller Novel Collection",
     price: "950,000",
-    img: "images/product-9.png",
+    img: `${import.meta.env.BASE_URL}images/product-9.png`
   },
   {
     id: 10,
     name: "Sci‑Fi & Dystopian Fiction Set ",
     price: "1,000,000",
-    img: "images/product-10.png",
+    img: `${import.meta.env.BASE_URL}images/product-10.png`
   },
   {
     id: 11,
     name: "Vintage Classic Novel Collection",
     price: "1,500,000",
-    img: "images/product-11.png",
+    img: `${import.meta.env.BASE_URL}images/product-11.png`
   },
   {
     id: 12,
     name: "Modern Bestseller Fiction Pack",
     price: "850,000",
-    img: "images/product-12.png",
+    img: `${import.meta.env.BASE_URL}images/product-12.png`
   },
 ];
 
@@ -137,12 +137,12 @@ export default function Home() {
       </svg>
       <div className="relative">
         <img
-          src="/images/banner.png"
+          src={`${import.meta.env.BASE_URL}images/banner.png`}
           className="hidden md:block bg-cover w-full"
           alt=""
         />
         <img
-          src="/images/banner-mobile.png"
+          src={`${import.meta.env.BASE_URL}images/banner-mobile.png`}
           className="md:hidden bg-cover w-full"
           alt=""
         />
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <img
-                  src="/images/footerLogo.png"
+                  src={`${import.meta.env.BASE_URL}images/footerLogo.png`}
                   alt="ChapterOne"
                   className="h-32 w-auto"
                 />
