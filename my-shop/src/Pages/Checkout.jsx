@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getUser, getCart, removeFromCart } from "../storage";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const initialForm = {
   fullName: "",
@@ -92,12 +93,12 @@ export default function Checkout() {
             {form.phone}.
           </p>
 
-          <a
+          <Link
             href="/"
             className="inline-block bg-slate-900 text-white text-sm font-medium px-6 py-2.5 rounded-lg hover:bg-slate-800 transition"
           >
             Back to shop
-          </a>
+          </Link>
         </div>
       </div>
     );
