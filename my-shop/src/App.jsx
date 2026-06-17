@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { Toaster } from "react-hot-toast";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
@@ -8,6 +9,96 @@ import Cart from "./Pages/Cart";
 import Admin from "./Pages/Admin";
 import Navbar from "./Components/Navbar";
 import Checkout from "./Pages/Checkout";
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <PageTransition>
+              <Login />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <PageTransition>
+              <Register />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            <PageTransition>
+              <Cart />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <PageTransition>
+              <Admin />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/checkout"
+          element={
+            <PageTransition>
+              <Checkout />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+// * page transition
+
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: -20,
+      }}
+      transition={{
+        duration: 0.25,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -49,14 +140,7 @@ function App() {
       >
         <Toaster position="top-center" />
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
+        <AnimatedRoutes />
       </div>
     </HashRouter>
   );
