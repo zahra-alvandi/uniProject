@@ -9,6 +9,7 @@ import Cart from "./Pages/Cart";
 import Admin from "./Pages/Admin";
 import Navbar from "./Components/Navbar";
 import Checkout from "./Pages/Checkout";
+import NotFound from "./NotFound";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -69,6 +70,7 @@ function AnimatedRoutes() {
             </PageTransition>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getProducts, getUser, addToCart } from "../storage";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 import "../App.css";
 
 const defaultProducts = [
@@ -14,73 +15,79 @@ const defaultProducts = [
     id: 2,
     name: "Modern English Fiction Set",
     price: "700,000",
-    img: `${import.meta.env.BASE_URL}images/product-2.png`
+    img: `${import.meta.env.BASE_URL}images/product-2.png`,
   },
   {
     id: 3,
     name: "Contemporary Literature Bundle ",
     price: "300,000",
-    img: `${import.meta.env.BASE_URL}images/product-3.png`
+    img: `${import.meta.env.BASE_URL}images/product-3.png`,
   },
   {
     id: 4,
     name: "Premium English Novel Pack",
     price: "600,000",
-    img: `${import.meta.env.BASE_URL}images/product-4.png`
+    img: `${import.meta.env.BASE_URL}images/product-4.png`,
   },
   {
     id: 5,
     name: "Inspiring Fiction Collection",
     price: "900,000",
-    img: `${import.meta.env.BASE_URL}images/product-5.png`
+    img: `${import.meta.env.BASE_URL}images/product-5.png`,
   },
   {
     id: 6,
     name: "Romance & Drama Novel Set",
     price: "750,000",
-    img: `${import.meta.env.BASE_URL}images/product-6.png`
+    img: `${import.meta.env.BASE_URL}images/product-6.png`,
   },
   {
     id: 7,
     name: "Adventure & Fantasy Book Bundle ",
     price: "450,000",
-    img: `${import.meta.env.BASE_URL}images/product-7.png`
+    img: `${import.meta.env.BASE_URL}images/product-7.png`,
   },
   {
     id: 8,
     name: "World Literature Collection ",
     price: "670,000",
-    img: `${import.meta.env.BASE_URL}images/product-8.png`
+    img: `${import.meta.env.BASE_URL}images/product-8.png`,
   },
   {
     id: 9,
     name: "Mystery & Thriller Novel Collection",
     price: "950,000",
-    img: `${import.meta.env.BASE_URL}images/product-9.png`
+    img: `${import.meta.env.BASE_URL}images/product-9.png`,
   },
   {
     id: 10,
     name: "Sci‑Fi & Dystopian Fiction Set ",
     price: "1,000,000",
-    img: `${import.meta.env.BASE_URL}images/product-10.png`
+    img: `${import.meta.env.BASE_URL}images/product-10.png`,
   },
   {
     id: 11,
     name: "Vintage Classic Novel Collection",
     price: "1,500,000",
-    img: `${import.meta.env.BASE_URL}images/product-11.png`
+    img: `${import.meta.env.BASE_URL}images/product-11.png`,
   },
   {
     id: 12,
     name: "Modern Bestseller Fiction Pack",
     price: "850,000",
-    img: `${import.meta.env.BASE_URL}images/product-12.png`
+    img: `${import.meta.env.BASE_URL}images/product-12.png`,
   },
 ];
 
 export default function Home() {
   const savedProducts = getProducts();
-  const products = savedProducts.length > 0 ? savedProducts : defaultProducts;
+  const [search, setSearch] = useState("");
+  const baseProducts =
+    savedProducts.length > 0 ? savedProducts : defaultProducts;
+
+  const products = baseProducts.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase()),
+  );
 
   const handleAddToCart = (product) => {
     const user = getUser();
@@ -150,10 +157,23 @@ export default function Home() {
           Dive Into Stories That Inspire, Excite, and Move You
         </p>
       </div>
+      <div className="container mx-auto px-8 pt-6">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search books..."
+          className="w-full md:w-1/2 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        />
+      </div>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8">
         {products.map((product) => (
-          <div
+          <motion.div
             key={product.id}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="p-2 md:p-5 rounded-2xl bg-white border border-gray-300 hover:shadow-md hover:scale-105 transition-all"
           >
             <div className="w-full h-52 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden text-gray-400 mb-4">
@@ -203,7 +223,7 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
