@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getUser, getCart, removeFromCart } from "../storage";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function Cart({ defaultProducts }) {
   const user = getUser();
@@ -129,8 +130,9 @@ export default function Cart({ defaultProducts }) {
                 </span>
               </div>
 
-              <button
-                className="
+              <Link to="/checkout">
+                <button
+                  className="
                   w-full
                   mt-5
                   py-3
@@ -141,9 +143,10 @@ export default function Cart({ defaultProducts }) {
                   hover:bg-slate-800
                   transition-colors
                 "
-              >
-                Proceed to Checkout
-              </button>
+                >
+                  Proceed to Checkout
+                </button>
+              </Link>
             </div>
           </>
         )}

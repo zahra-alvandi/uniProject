@@ -7,6 +7,7 @@ import Register from "./Pages/Register";
 import Cart from "./Pages/Cart";
 import Admin from "./Pages/Admin";
 import Navbar from "./Components/Navbar";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -54,6 +55,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </HashRouter>
